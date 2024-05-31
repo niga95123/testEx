@@ -1,0 +1,10 @@
+knp_paginator:
+  page_range: 5                     # количество страниц, отображаемых в пагинаторе
+  default_options:
+    page_name: page                 # имя параметра для номера страницы
+    sort_field_name: sort         # имя параметра для сортировки
+    sort_direction_name: direction # имя параметра для направления сортировки
+    distinct: true                 # использовать DISTINCT в запросах
+  template:
+    pagination: '@KnpPaginator/Pagination/sliding.html.twig' # шаблон для пагинации
+    sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # шаблон для сортировки
