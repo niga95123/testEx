@@ -1,4 +1,4 @@
-###**Разработка API для интернет-магазина на Symfony**
+###**Тестовое задание**
 
 **Для сборки и запуска выполнить команду**
 
@@ -8,15 +8,17 @@ docker-compose up -d --build
 
 **После сборки и установки всех зависимостей последовательно выполнить следующие команды:**
 
- **1. Подключиться к контейнеру**
+ **1. Выполнить миграции**
 ```sh
-docker exec -it shop-php-fpm bash
+docker-compose exec -it shop-php-fpm symfony console doctrine:migrations:migrate
 ```
-**2. Выполнить миграции** 
+**2. Загрузить фикстуры** 
 ```sh
-./bin/console doctrine:migrations:migrate
+docker-compose exec -it shop-php-fpm symfony console doctrine:fixtures:load --append
 ```
 
 ###**API**
 
 C документацией можно ознакомится после запуска контейнера по ссылке http://localhost:8888/api/doc
+
+Так же учел добавление в заголовках X-Debug-Time и X-Debug-Memory
